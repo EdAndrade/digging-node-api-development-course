@@ -1,0 +1,12 @@
+{
+  "name": "07-multidb",
+  "version": "1.0.0",
+  "description": "docker run \\ \t--name postgres \\ \t-e POSTGRES_USER=edmilson \\ \t-e POSTGRES_PASSWORD=123 \\ \t-e POSTGRES_DB=heroes \\ \t-p 5432:5432 \\ \t-d \\ \tpostgres",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
