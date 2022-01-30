@@ -4,7 +4,7 @@
   "description": "docker run \\ \t--name postgres \\ \t-e POSTGRES_USER=edmilson \\ \t-e POSTGRES_PASSWORD=123 \\ \t-e POSTGRES_DB=heroes \\ \t-p 5432:5432 \\ \t-d \\ \tpostgres",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha **/*.test.js"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +13,8 @@
     "pg": "8.7.1",
     "pg-hstore": "2.3.4",
     "sequelize": "6.15.0"
+  },
+  "devDependencies": {
+    "mocha": "9.2.0"
   }
 }

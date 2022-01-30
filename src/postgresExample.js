@@ -1,17 +1,4 @@
-//yarn add sequelize
 
-const Sequelize = require('sequelize')
-const driver = new Sequelize(
-	'heroes',
-	'edmilson',
-	'123',
-	{
-		host: 'localhost',
-		port: 23456,
-		dialect: 'postgres',
-		quoteIdentifiers: false
-	}
-)
 
 async function main(){
 	const Herois = driver.define('herois', {
