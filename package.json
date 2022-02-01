@@ -4,7 +4,7 @@
   "description": "docker run \\ \t--name postgres \\ \t-e POSTGRES_USER=edmilson \\ \t-e POSTGRES_PASSWORD=123 \\ \t-e POSTGRES_DB=heroes \\ \t-p 5432:5432 \\ \t-d \\ \tpostgres",
   "main": "index.js",
   "scripts": {
-    "test": "mocha **/*.test.js"
+    "test": "mocha src/tests/postgresStrategy.test.js"
   },
   "keywords": [],
   "author": "",
