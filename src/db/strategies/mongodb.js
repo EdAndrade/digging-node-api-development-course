@@ -19,19 +19,19 @@ class MongoDB extends ICrud {
 
 	async isConnected() {
 
-		const state = STATUS[connection.readyState]
+		const state = STATUS[this._driver.readyState]
 
 		if(state === 'Conectado') return state;
 		if(state !== 'Conectando') return state;
-		
+
 		await new Promise( resolve => setTimeout(resolve, 1000))
 
-		return STATUS[connection.readyState]
+		return STATUS[this._driver.readyState]
 	}
 
 	defineModel() {
 
-		this._herois = new Mongoose.Schema({
+		const heroisSchema = new Mongoose.Schema({
 			nome: {
 				type: String,
 				required: true
@@ -45,6 +45,8 @@ class MongoDB extends ICrud {
 				default: new Date()
 			}
 		})
+
+		this._herois = Mongoose.model('herois', heroisSchema)
 	}
 
 	connect() {
@@ -55,17 +57,12 @@ class MongoDB extends ICrud {
 
 		const connection = Mongoose.connection
 		connection.once('open', () => console.log('database rodando'))
-	}
-
-	create() {
-		const resultCadastrar = await model.create({
-			nome: 'Batman',
-			poder: 'Dinheiro'
-		})
+		this._driver = connection
+		this.defineModel()
 	}
 
 	create(item) {
-		console.log('O item foi salvo em MongoDB')
+		return this._herois.create(item)
 	}
 }
 
