@@ -7,6 +7,10 @@ class NotImplementedException extends Error {
 
 class ICrud {
 
+	connect(){
+		throw new NotImplementedException()
+	}
+
 	create(item){
 		throw new NotImplementedException()
 	}
