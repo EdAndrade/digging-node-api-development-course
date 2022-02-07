@@ -22,7 +22,15 @@ class HeroRoutes extends BaseRoute {
                     if(nome){
                         query.nome = nome
                     }
-                    
+
+                    if(!skip){
+                        skip = 0
+                    }
+
+                    if(!limit){
+                        limit = 10
+                    }
+
                     return this.db.read({
                         item: query,
                         skip: parseInt(skip),
@@ -42,8 +50,21 @@ class HeroRoutes extends BaseRoute {
         return {
             path: '/herois',
             method: 'POST',
-            handler: (request, head) => {
-                return this.db.read()
+            handler: async (request, head) => {
+                
+                try{
+
+                    const { nome, poder } = request.payload
+                    const result = await this.db.create({nome, poder})
+
+                    return {
+                        message: 'Heroi cadastrado com sucesso!'
+                    }
+
+                }catch{
+                    console.log('Deu ruim', error)
+                    return "Erro interno no servidor"
+                }
             }
         }
     }
