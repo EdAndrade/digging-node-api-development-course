@@ -1,5 +1,5 @@
 const BaseRoute = require('./base/baseRoute')
-
+const Boom = require('boom')
 class HeroRoutes extends BaseRoute {
 
     constructor(db) {
@@ -39,7 +39,7 @@ class HeroRoutes extends BaseRoute {
 
                 } catch (error) {
                     console.log('Deu ruim', error)
-                    return "Erro interno no servidor"
+                    return Boom.internal()
                 }
 
             }
