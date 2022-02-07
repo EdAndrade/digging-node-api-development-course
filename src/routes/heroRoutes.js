@@ -58,7 +58,37 @@ class HeroRoutes extends BaseRoute {
                     const result = await this.db.create({nome, poder})
 
                     return {
-                        message: 'Heroi cadastrado com sucesso!'
+                        message: 'Heroi cadastrado com sucesso!',
+                        _id: result._id
+                    }
+
+                }catch{
+                    console.log('Deu ruim', error)
+                    return "Erro interno no servidor"
+                }
+            }
+        }
+    }
+
+    update(){
+
+        return {
+            path: '/herois/{id}',
+            method: 'PATCH',
+            handler: async (request) => {
+                
+                try{
+
+                    const { id } = request.params
+                    const { payload } = request
+
+                    const dadosString = JSON.stringify(payload)
+                    const dados = JSON.parse(dadosString)
+
+                    const result = await this.db.update(id, dados)
+
+                    return {
+                        message: 'Heroi atualizado com sucesso!'
                     }
 
                 }catch{
