@@ -11,6 +11,12 @@ class HeroRoutes extends BaseRoute {
         return {
             path: '/herois',
             method: 'GET',
+            config: {
+                tags: ['api'],
+                description: 'Deve listar herois',
+                notes: 'Pode paginar resultados e filtrar por nome'
+            },
+
             handler: (request, headers) => {
 
                 try {
