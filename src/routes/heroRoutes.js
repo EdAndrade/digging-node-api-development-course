@@ -1,23 +1,44 @@
 const BaseRoute = require('./base/baseRoute')
 
-class HeroRoutes extends BaseRoute{
+class HeroRoutes extends BaseRoute {
 
-    constructor(db){
+    constructor(db) {
         super()
         this.db = db
     }
 
-    list(){
+    list() {
         return {
             path: '/herois',
             method: 'GET',
-            handler: (request, head) => {
-                return this.db.read()
+            handler: (request, headers) => {
+
+                try {
+
+                    let { skip, limit, nome } = request.query
+
+                    let query = {}
+
+                    if(nome){
+                        query.nome = nome
+                    }
+                    
+                    return this.db.read({
+                        item: query,
+                        skip: parseInt(skip),
+                        limit: parseInt(limit)
+                    })
+
+                } catch (error) {
+                    console.log('Deu ruim', error)
+                    return "Erro interno no servidor"
+                }
+
             }
         }
     }
 
-    create(){
+    create() {
         return {
             path: '/herois',
             method: 'POST',

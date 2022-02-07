@@ -1380,10 +1380,10 @@ growl@1.10.5:
   resolved "https://registry.npmjs.org/growl/-/growl-1.10.5.tgz"
   integrity sha512-qBr4OuELkhPenW6goKVXiv47US3clb3/IbuWF9KNKEijAy9oeHxU9IgzjvJhHkUzhaj7rOUD7+YGWqUjLp5oSA==
 
-hapi@^18.1.0:
-  version "18.1.0"
-  resolved "https://registry.yarnpkg.com/hapi/-/hapi-18.1.0.tgz#98a2a5a8f37a41eb196bdad9727f66b1fbca5fec"
-  integrity sha512-nSU1VLyTAgp7P5gy47QzJIP2JAb+wOFvJIV3gnL0lFj/mD+HuTXhyUsDYXjF/dhADMVXVEz31z6SUHBJhtsvGA==
+hapi@^18.3.0:
+  version "18.0.0"
+  resolved "https://registry.yarnpkg.com/hapi/-/hapi-18.0.0.tgz#97dcc248432baa3d32eb9d9542dec028d8271e1a"
+  integrity sha512-Yv68jeoHww6W88gQsvBfZil139Ho/CTMH75+GADuREIET/4bo60yhp+MoVc3lHjMR5hIEYl7HC6wxGzbmGBLQg==
   dependencies:
     accept "3.x.x"
     ammo "3.x.x"
